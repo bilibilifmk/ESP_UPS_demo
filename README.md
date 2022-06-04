@@ -12,6 +12,7 @@
  
  ## 协议规范文档 [networkupstools](https://networkupstools.org/docs/developer-guide.chunked/ar01s09.html#_list)
  ## 完整通信协议 [nut_demo](https://github.com/networkupstools/nut/blob/master/data/evolution500.seq)
+ * 本项目 进行了精简 群晖很多参数不会解析 
 battery.charge: 90  
 battery.charge.low: 30  
 battery.runtime: 3690  
