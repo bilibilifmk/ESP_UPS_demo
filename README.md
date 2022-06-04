@@ -1,6 +1,8 @@
 # ESP_UPS_demo
  模拟群晖不断电服务器协议 实现自制ups 接入群晖系统
- 
+ * 平台 ESP8266 ARDUINO
+ * 需要依赖wifi_link_tool
+ * 黑群晖｜白群晖
  ### 演示视频：
  
   ## 效果图
