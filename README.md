@@ -2,6 +2,12 @@
  模拟群晖不断电服务器协议 实现自制ups 接入群晖系统
  
  ### 演示视频：
+ 
+  ## 效果图
+ ![img](./img/1.png)
+ ![img](./img/2.png)
+ ![img](./img/3.png)
+ 
  ## 协议规范文档 [networkupstools](https://networkupstools.org/docs/developer-guide.chunked/ar01s09.html#_list)
  ## 完整通信协议 [nut_demo](https://github.com/networkupstools/nut/blob/master/data/evolution500.seq)
 battery.charge: 90  
@@ -50,7 +56,4 @@ ups.serial: AV2G3300L
 ups.status: OL CHRG  
 ups.test.interval: 604800  
 ups.test.result: Done and passed  
- ## 效果图
- ![img](./img/1.png)
- ![img](./img/2.png)
- ![img](./img/3.png)
+
