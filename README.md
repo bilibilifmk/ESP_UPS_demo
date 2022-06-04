@@ -11,7 +11,7 @@
  * 通过在GitHub上检索LIST UPS、LOGOUT 找到了群晖使用的协议 NUT （Network UPS Tools）
  * 通过查看源码中的完整通信 模拟了该项目 为下一个项目做服务 
  
- ### 演示视频：
+ ### 演示视频：https://www.bilibili.com/video/BV1UZ4y1475u/
  
   ## 效果图
  ![img](./img/1.png)
