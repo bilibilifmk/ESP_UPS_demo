@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>UPS模拟DEMO</title>
+    <style>
+        * {
+            text-align: center;
+            -webkit-tap-highlight-color: transparent;
+            -moz-tap-highlight-color: transparent;
+        }
+
+        input[type=range] {
+    margin-top: -20px;
+    display: inline-block;
+    position: relative;
+    width: 80%;
+    height: 80px;
+    margin: 8px 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+ 
+  /*range中心圆点*/
+   
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 58px;
+    width: 58px;
+    border-radius: 100%;
+    background-color: #ff8eb3;
+    cursor: pointer;
+    margin-top: -27px;
+    -webkit-box-shadow: 0 0 30px 0 rgba(0,0,0,.19);
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.19);
+  }
+ 
+  /*range轨道*/
+   
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    background-color: #e7799e;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+/*//滑动条//////////////////////////////////////////////////////////////////////////////////*/
+
+  #T_range,#H_range,#warn_time{
+    line-height: 50px;
+    font-size: 50px;
+    color: #aaa;
+  }
+
+  #T_range, #warn_time{
+    margin: 50px 0;
+  }
+
+  #light_p{
+    margin-top: 100px;
+    width: 200px;
+    filter: grayscale(100%);
+  }
+
+  #warn_btn{
+    line-height: 60px;
+    font-size: 60px;
+    cursor: pointer;
+    display: none;
+    margin: 0 200px;
+    padding: 20px;
+    border: none;
+    background: red;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  #warn_btn:hover{
+    opacity: 0.7;
+  }
+  
+  #warn_stopped{
+    display: none;
+    font-size: 50px;
+    line-height: 60px;
+    color: #FFC300;
+  }
+
+  #TH_con{
+    margin-top: 70px;
+    margin-bottom: 30px;
+    padding: 30px;
+    background: #ffeee4;
+  }
+
+  #TH_con > p{
+    font-size: 60px;
+  }
+
+  #title{
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 150px);
+    color: #666;
+    font-size: 30px;
+    width: 300px;
+  }
+        .af {
+            width: 400px;
+            height: 200px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            font-size: 50px;
+            color: #fff;
+            background: #ff8eb3;
+            margin: 0 100px;
+            margin-top: 150px;
+        }
+        /*.af:hover{
+            opacity: 0.8;
+        }*/
+        .title {
+            font-size: 35px;
+            color: #ff8eb3;
+            margin-bottom: 5px;
+        }
+
+        #inp {
+            width: 100%;
+            height: 100px;
+            font-size: 50px;
+            margin-top: 100px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 3px solid #ff8eb3;
+            color: #ff8eb3;
+        }
+    </style>
+</head>
+<body>
+    <p class="title">模拟面板</p>
+    <p id="dcdl" class="title">电池电量：请指定</p>
+    <p id="xhsj" class="title">可续航时间：请指定</p>
+    <p id="ms" class="title">模式：AC</p>
+     <p class="title">「 电池电量 」</p>
+     <input id="dl" type="range" min="0" max="100" value="100" onclick="dls()">
+     <p class="title">「 续航时间 」</p>
+     <input id="sj" type="range" min="0" max="2000" value="1234" onclick="sjs()">
+
+     <input class="af" type="button" value="市电AC模式" onclick="opera('AC')">
+     <input class="af" type="button" value="电池DC模式" onclick="opera('DC')">
+     <input class="af" type="button" value="电池低电量" onclick="opera('LB')">
+  
+</body>
+<script>
+
+
+
+
+
+
+    function dls() {
+        document.getElementById("dcdl").innerHTML = "电池电量："+document.getElementById("dl").value + " %" ;
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        }
+        xmlhttp.onreadystatechange = function () {
+
+        }
+        xmlhttp.open("GET", "/charge?vlue=" + document.getElementById("dl").value);
+        xmlhttp.send();
+ 
+    }
+    function sjs() {
+        document.getElementById("xhsj").innerHTML = "可续航时间："+document.getElementById("sj").value +" s" ;
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        }
+        xmlhttp.onreadystatechange = function () {
+
+        }
+        xmlhttp.open("GET", "/chargelow?vlue=" + document.getElementById("sj").value);
+        xmlhttp.send();
+ 
+    }
+
+
+    function opera(n) {
+
+       if(n=="AC"){
+        document.getElementById("ms").innerHTML ="模式：AC"
+
+       }else if(n=="DC"){
+        document.getElementById("ms").innerHTML="模式：DC"
+
+       }
+      
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        }
+        xmlhttp.onreadystatechange = function () {
+
+        }
+        xmlhttp.open("GET", "/model?model=" + n);
+        xmlhttp.send();
+    }
+
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
