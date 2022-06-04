@@ -9,7 +9,7 @@
  * 后续深层解析 发现使用 telnet协议 
  * 创建telnet server 后发现 群晖向server发送了LIST UPS  十几秒后发送LOGOUT 群晖断开连接 
  * 通过在GitHub上检索LIST UPS、LOGOUT 找到了群晖使用的协议 NUT （Network UPS Tools）
- * 通过查看源码中国的完整通信 模拟了该项目 为下一个项目做服务 
+ * 通过查看源码中的完整通信 模拟了该项目 为下一个项目做服务 
  
  ### 演示视频：
  
